@@ -1,0 +1,93 @@
+body { font-family: sans-serif; background: #f0f2f5; display: flex; justify-content: center; padding: 20px; }
+.container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 600px; text-align: center; }
+.hidden { display: none; }
+#testo-domanda { font-size: 1.2rem; min-height: 80px; margin: 20px 0; font-weight: bold; }
+.risposte { display: flex; gap: 20px; justify-content: center; margin-top: 20px; }
+.btn-quiz { padding: 15px 40px; font-size: 1.1rem; cursor: pointer; border: none; border-radius: 8px; transition: transform 0.1s; }
+.btn-quiz:active { transform: scale(0.95); }
+.stats { display: flex; justify-content: space-between; font-size: 0.9rem; color: #666; }
+#risultato-immediato { margin-top: 20px; font-weight: bold; height: 24px; }
+button { padding: 10px 20px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 5px; margin: 10px; }
+button:hover { background: #0056b3; }
+
+/* ... Codice precedente ... */
+
+/* Stili per l'immagine nel QUIZ */
+#immagine-quiz-container {
+    margin: 15px auto;
+    max-width: 400px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    background: white;
+}
+#immagine-quiz {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Stili per le miniature nell'ARCHIVIO */
+.mini-foto {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.mini-foto:hover { transform: scale(1.1); }
+
+/* Altri aggiustamenti tabella */
+table td { text-align: center; vertical-align: middle; }
+.btn-del { background: red; padding: 5px 10px; font-size: 0.8rem; }
+.txt-vero { color: green; font-weight: bold; }
+.txt-falso { color: red; font-weight: bold; }
+
+
+/* ... Stili base già discussi ... */
+
+/* Stili specifici per il form e la tabella */
+.tabs { display: flex; gap: 5px; margin-bottom: 20px; }
+.tabs button { background: #6c757d; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+.tabs button:hover { background: #5a6268; }
+.tabs button.active { background: #007bff; font-weight: bold; }
+
+.toolbar { display: flex; gap: 10px; margin-bottom: 15px; justify-content: space-between; }
+#searchBar { flex-grow: 1; padding: 10px; }
+
+.table-wrapper { overflow-x: auto; max-height: 500px; border: 1px solid #eee; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { border: 1px solid #ddd; padding: 10px; vertical-align: middle; text-align: center;}
+th { background-color: #f8f9fa; }
+
+.mini-foto { width: 40px; height: 40px; object-fit: cover; border-radius: 4px; border: 1px solid #ccc; cursor: pointer; }
+.mini-foto:hover { transform: scale(1.1); }
+
+/* Classi per l'azione di Modifica/Elimina */
+.action-buttons { display: flex; gap: 5px; justify-content: center; }
+.btn-edit { background: #ffc107; color: black; padding: 5px 10px; font-size: 0.8rem; }
+.btn-edit:hover { background: #e0a800; }
+.btn-del { background: #dc3545; color: white; padding: 5px 10px; font-size: 0.8rem; }
+.btn-del:hover { background: #c82333; }
+
+/* Stili Form */
+.form-group { text-align: left; background: #fafafa; padding: 20px; border-radius: 8px;}
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+.form-group textarea { height: 100px; resize: vertical; }
+
+.file-input-group { border: 1px dashed #bbb; padding: 15px; background: white; margin-bottom: 10px; border-radius: 5px;}
+.file-input-group label { font-weight: bold; display: block; margin-bottom: 5px; }
+.file-info { font-size: 0.8rem; color: #666; margin: 5px 0; }
+#new-img-path { background: #f0f0f0; }
+
+.form-buttons { display: flex; gap: 10px; margin-top: 15px;}
+#btn-save { background: #28a745; color: white; flex-grow: 2;}
+#btn-save:hover { background: #218838; }
+
+.hidden { display: none !important; }
+
+/* Feedback VERO/FALSO in tabella */
+.txt-vero { color: green; font-weight: bold; }
+.txt-falso { color: red; font-weight: bold; }
