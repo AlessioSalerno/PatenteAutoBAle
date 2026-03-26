@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pannello Patente con Modifica & Foto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="tabs">
+            <button id="btn-tab-quiz" onclick="switchTab('quiz')">🎓 Area Studente</button>
+            <button id="btn-tab-archivio" onclick="switchTab('archivio')">👨‍🏫 Archivio Completo</button>
+            <button id="btn-tab-aggiungi" onclick="switchTab('aggiungi')">➕ Aggiungi/Modifica</button>
+        </nav>
+        <hr>
+
+        <section id="tab-quiz" class="tab-content">
+            <h1>Esercitazione Quiz</h1>
+            <div id="menu-scelta">
+                <button class="btn-main" onclick="iniziaQuiz('esame')">Simulazione Esame (30 random)</button>
+                <button class="btn-main" onclick="iniziaQuiz('studio')">Ripasso Completo (Tutto il DB)</button>
+            </div>
+            <div id="quiz-container" class="hidden">
+                <div class="stats">
+                    <span>Domanda: <span id="corrente">0</span> / <span id="totale">0</span></span>
+                    <span>Errori: <span id="errori-count">0</span></span>
+                </div>
+                <div id="domanda-box">
+                    <p id="testo-domanda"></p>
+                    
+                    <div id="immagine-quiz-container" class="hidden">
+                        <img id="immagine-quiz" src="" alt="Quiz Immagine">
+                    </div>
+
+                    <div class="risposte">
+                        <button class="btn-v" onclick="rispondi(true)">VERO</button>
+                        <button class="btn-f" onclick="rispondi(false)">FALSO</button>
+                    </div>
+                </div>
+                <div id="feedback"></div>
+            </div>
+        </section>
+
+        <section id="tab-archivio" class="tab-content hidden">
+            <h1>Archivio Quiz</h1>
+            <div class="toolbar">
+                <input type="text" id="searchBar" placeholder="Cerca nel testo..." onkeyup="filtraArchivio()">
+                <button onclick="scaricaDatabase()" class="btn-save">💾 Salva Permanente (Scarica DB)</button>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Foto</th>
+                            <th>Argomento</th>
+                            <th>Testo</th>
+                            <th>Risposta</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpo-tabella"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="tab-aggiungi" class="tab-content hidden">
+            <h1 id="form-title">Aggiungi Nuovo Quiz</h1>
+            
+            <input type="hidden" id="edit-index" value="-1">
+
+            <div class="form-group">
+                <input type="text" id="new-id" placeholder="ID (es: 25282)">
+                <input type="text" id="new-arg" placeholder="Argomento">
+                <textarea id="new-text" placeholder="Testo della domanda"></textarea>
+                
+                <div class="file-input-group">
+                    <label>Immagine (carica file o incolla URL locale):</label>
+                    <input type="file" id="new-img" accept="image/*">
+                    <p class="file-info">Oppure inserisci percorso locale es: <small>immagini/foto.jpg</small></p>
+                    <input type="text" id="new-img-path" placeholder="immagini/foto.jpg">
+                </div>
+                
+                <select id="new-ans">
+                    <option value="true">VERO</option>
+                    <option value="false">FALSO</option>
+                </select>
+                
+                <div class="form-buttons">
+                    <button id="btn-save" onclick="salvaNuovoQuiz()">Salva Quiz</button>
+                    <button id="btn-cancel" class="btn-del hidden" onclick="annullaModifica()">Annulla</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
